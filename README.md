@@ -14,3 +14,11 @@ Exemple (build simulator) :
 ```
 make PLATFORM=simulator EPSILON_APPS='calculation graph code statistics probability solver sequence regression settings electronic'
 ```
+
+## Screenshots
+
+![Law menu selection](https://i.imgur.com/URHMvdo.png)
+![Ohm Law](https://i.imgur.com/6lOUhjY.png)
+
+## WIP
+This repository is still under work in progress
