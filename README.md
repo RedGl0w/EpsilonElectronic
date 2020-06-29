@@ -1,7 +1,7 @@
 # numworks' epsilon electronic app
 An experiment of an electronic app for [numworks' epsilon](https://github.com/numworks/epsilon)
 
-# Compiling
+## Compiling
 
 ```
 git clone https://github.com/RedGl0w/EpsilonElectronic.git apps/electronic
