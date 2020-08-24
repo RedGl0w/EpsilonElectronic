@@ -66,6 +66,7 @@ View * ohmLawController::ohmLawView::subviewAtIndex(int index) {
     }
     default : {
       assert(false);
+      return nullptr;
     }
   }
 }
