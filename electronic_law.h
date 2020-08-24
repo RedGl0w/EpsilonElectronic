@@ -6,9 +6,11 @@
 
 namespace Electronic {
 
-class electronicLaw {
+class electronicLaw : public ViewController {
   public:
+    electronicLaw(Responder * parentResponder) : ViewController(parentResponder) {}
     virtual const I18n::Message lawName(){return I18n::Message::Default;};
+    bool handleEvent(Ion::Events::Event event) override;
 };
 }
 
