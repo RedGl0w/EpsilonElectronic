@@ -27,7 +27,7 @@ void MenuController::didBecomeFirstResponder() {
 
 bool MenuController::handleEvent(Ion::Events::Event event) {
   if(event == Ion::Events::OK || event == Ion::Events::EXE){
-    stackController()->push(static_cast<ViewController*>(&m_ohmController));
+    stackController()->push(static_cast<ViewController*>(lawAtIndex(selectedRow())));
     return true;
   }
   return false;
@@ -77,16 +77,20 @@ void MenuController::viewWillAppear() {
 StackViewController * MenuController::stackController() const {
   return (StackViewController *)parentResponder();
 }
-/* 
+
 electronicLaw * MenuController::lawAtIndex(int index){
+
+  // TODO Refractor this to something like EPSILON_APPS
+
   switch (index){
-    case 1 : {
+    case 0 : {
       return &m_ohmController;
     }
     default : {
       assert(false);
+      return nullptr;
     }
   }
-} */
+}
 
 }

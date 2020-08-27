@@ -28,7 +28,7 @@ private:
   SelectableTableView m_selectableTableView;
   constexpr static int k_numberOfLaws = 1;
   MessageTableCellWithChevronAndMessage m_cells[k_numberOfLaws];
-/*   electronicLaw lawAtIndex(int index); */
+  electronicLaw * lawAtIndex(int index);
   ohmLawController m_ohmController;
 
 };
