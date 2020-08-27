@@ -2,7 +2,7 @@
 #define ELECTRONIC_MENU_CONTROLLER_H
 
 #include <escher.h>
-#include "electronic_law.h"
+#include "electronic_controller.h"
 #include "ohm/ohm_controller.h"
 
 namespace Electronic {
@@ -28,7 +28,7 @@ private:
   SelectableTableView m_selectableTableView;
   constexpr static int k_numberOfLaws = 1;
   MessageTableCellWithChevronAndMessage m_cells[k_numberOfLaws];
-  electronicLaw * lawAtIndex(int index);
+  electronicController * lawAtIndex(int index);
   ohmLawController m_ohmController;
 
 };

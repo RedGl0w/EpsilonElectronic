@@ -4,7 +4,7 @@ app_headers += apps/electronic/app.h
 app_electronic_src = $(addprefix apps/electronic/,\
   app.cpp \
   menu_controller.cpp \
-  electronic_law.cpp \
+  electronic_controller.cpp \
 )
 
 electronic_law = $(addprefix apps/electronic/,\

@@ -7,7 +7,7 @@
 namespace Electronic {
 
 ohmLawController::ohmLawController(Responder * parentResponder) :
-  electronicLaw(parentResponder)
+  electronicController(parentResponder)
 {
 }
 
@@ -87,7 +87,7 @@ void ohmLawController::didBecomeFirstResponder() {
 }
 
 bool ohmLawController::handleEvent(Ion::Events::Event event) {
-  return electronicLaw::handleEvent(event);
+  return electronicController::handleEvent(event);
 }
 
 }

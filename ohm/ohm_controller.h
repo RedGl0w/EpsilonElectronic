@@ -2,7 +2,7 @@
 #define ELECTRONIC_OHM_LAW_CONTROLLER_H
 
 #include <escher.h>
-#include "../electronic_law.h"
+#include "../electronic_controller.h"
 
 #include "../shared/battery_view.h"
 #include "../shared/resistor_view.h"
@@ -11,7 +11,7 @@
 
 namespace Electronic {
 
-class ohmLawController : public electronicLaw {
+class ohmLawController : public electronicController {
   public:
     ohmLawController(Responder * parentResponder);
     View * view() override;

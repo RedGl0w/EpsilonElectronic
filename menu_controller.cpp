@@ -78,7 +78,7 @@ StackViewController * MenuController::stackController() const {
   return (StackViewController *)parentResponder();
 }
 
-electronicLaw * MenuController::lawAtIndex(int index){
+electronicController * MenuController::lawAtIndex(int index){
 
   // TODO Refractor this to something like EPSILON_APPS
 
