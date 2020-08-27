@@ -23,9 +23,7 @@ electronic_shared = $(addprefix apps/electronic/shared/, \
 apps_src += $(app_electronic_src)
 apps_src += $(electronic_shared)
 
-i18n_files += $(addprefix apps/electronic/,\
-  base.en.i18n\
-)
+i18n_files += $(call i18n_without_universal_for,electronic/base)
 
 
 $(eval $(call depends_on_image,apps/electronic/app.cpp,apps/electronic/electronic_icon.png))
