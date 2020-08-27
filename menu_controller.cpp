@@ -7,7 +7,7 @@ namespace Electronic {
 MenuController::MenuController(Responder * parentResponder, InputEventHandlerDelegate * inputEventHandlerDelegate) :
   ViewController(parentResponder),
   m_selectableTableView(this),
-  m_ohmController(this)
+  m_ohmController(this, inputEventHandlerDelegate)
 {
   for (int i = 0; i < k_numberOfLaws; i++) {
     m_cells[i].setMessageFont(KDFont::LargeFont);

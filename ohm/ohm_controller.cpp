@@ -6,8 +6,9 @@
 
 namespace Electronic {
 
-ohmLawController::ohmLawController(Responder * parentResponder) :
-  electronicController(parentResponder)
+ohmLawController::ohmLawController(Responder * parentResponder, InputEventHandlerDelegate * inputEventHandlerDelegate) :
+  electronicController(parentResponder),
+  m_ohmLawView(inputEventHandlerDelegate)
 {
 }
 
@@ -16,12 +17,14 @@ View * ohmLawController::view() {
 }
 
 
-ohmLawController::ohmLawView::ohmLawView() :
+ohmLawController::ohmLawView::ohmLawView(InputEventHandlerDelegate * inputEventHandlerDelegate) :
   View(),
   m_batteryView(verticalFormat::landscape),
   m_currentView(verticalFormat::portrait),
-  m_resistorView(verticalFormat::landscape)
-{}
+  m_resistorView(verticalFormat::landscape),
+  m_subViews{&m_batteryView, &m_topRightCable, &m_rightCable, &m_currentView, &m_bottomRightCable, &m_resistorView,
+                  &m_bottomLeftCable, &m_leftCable, &m_topLeftCable}
+  {}
 
 void ohmLawController::ohmLawView::drawRect(KDContext * ctx, KDRect rect) const {
   ctx->fillRect(KDRect(0, 0, bounds().width(), bounds().height()), Palette::WallScreen);
@@ -32,43 +35,12 @@ void ohmLawController::ohmLawView::reload() {
 }
 
 int ohmLawController::ohmLawView::numberOfSubviews() const {
-  return 9;
+  return sizeof(m_subViews)/sizeof(View*);
 }
 
 View * ohmLawController::ohmLawView::subviewAtIndex(int index) {
-  switch(index) {
-    case 0 : {
-      return &m_batteryView;
-    }
-    case 1 : {
-      return &m_topRightCable;
-    }
-    case 2 : {
-      return &m_rightCable;
-    }
-    case 3 : {
-      return &m_currentView;
-    }
-    case 4 : {
-      return &m_bottomRightCable;
-    }
-    case 5 : {
-      return &m_resistorView;
-    }
-    case 6 : {
-      return &m_bottomLeftCable;
-    }
-    case 7 : {
-      return &m_leftCable;
-    }
-    case 8 : {
-      return &m_topLeftCable;
-    }
-    default : {
-      assert(false);
-      return nullptr;
-    }
-  }
+  assert(index > 0 && index < 9);
+  return m_subViews[index];
 }
 
 void ohmLawController::ohmLawView::layoutSubviews(bool force) {

@@ -13,7 +13,7 @@ namespace Electronic {
 
 class ohmLawController : public electronicController {
   public:
-    ohmLawController(Responder * parentResponder);
+    ohmLawController(Responder * parentResponder, InputEventHandlerDelegate * inputEventHandlerDelegate);
     View * view() override;
     bool handleEvent(Ion::Events::Event event) override;
     void didBecomeFirstResponder() override;
@@ -21,7 +21,7 @@ class ohmLawController : public electronicController {
 
   class ohmLawView : public View {
     public:
-      ohmLawView();
+      ohmLawView(InputEventHandlerDelegate * inputEventHandlerDelegate);
       void drawRect(KDContext * ctx, KDRect rect) const override;
       void reload();
       int numberOfSubviews() const override;
@@ -37,6 +37,7 @@ class ohmLawController : public electronicController {
       CableView m_bottomLeftCable;
       CableView m_leftCable;
       CableView m_topLeftCable;
+      View * m_subViews[9];
   };
   private:
       ohmLawView m_ohmLawView;
